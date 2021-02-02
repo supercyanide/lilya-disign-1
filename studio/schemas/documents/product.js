@@ -20,6 +20,45 @@ export default {
       },
     },
     {
+      name: "blurb",
+      title: "Blurb",
+      type: "localeString",
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "localeBlockContent",
+    },
+    {
+      title: "Tags",
+      name: "tags",
+      type: "array",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+      options: {
+        layout: "tags",
+      },
+    },
+    {
+      title: "Default variant",
+      name: "defaultProductVariant",
+      type: "productVariant",
+    },
+    {
+      title: "Variants",
+      name: "variants",
+      type: "array",
+      of: [
+        {
+          title: "Variant",
+          type: "productVariant",
+        },
+      ],
+    },
+    {
       name: "vendor",
       title: "Vendor",
       type: "reference",
