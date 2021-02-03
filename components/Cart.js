@@ -1,4 +1,8 @@
+import {useState} from 'react'
+
 function Cart({ cartOpen, handleOpen }) {
+  const productCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count
+  const [count, setCount] = useState(1)
   return (
     <div
       className={`${
@@ -25,7 +29,7 @@ function Cart({ cartOpen, handleOpen }) {
         </button>
       </div>
       <hr className="my-3" />
-      {[0, 1, 2].map((item) => (
+      {[0].map((item) => (
         <div key={item} className="flex justify-between mt-6">
           <div className="flex">
             <img
@@ -36,7 +40,22 @@ function Cart({ cartOpen, handleOpen }) {
             <div className="mx-3">
               <h3 className="text-sm text-gray-600">Mac Book Pro</h3>
               <div className="flex items-center mt-2">
-                <button className="text-gray-500 focus:outline-none focus:text-gray-600">
+              <button onClick={() => productCount(-1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                  <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                
+                </button>
+                <span className="text-gray-700 text-lg mx-2">{count}</span>
+                <button onClick={() => productCount(1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg
                     className="h-5 w-5"
                     fill="none"
@@ -47,20 +66,6 @@ function Cart({ cartOpen, handleOpen }) {
                     stroke="currentColor"
                   >
                     <path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </button>
-                <span className="text-gray-700 mx-2">2</span>
-                <button className="text-gray-500 focus:outline-none focus:text-gray-600">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </button>
               </div>
@@ -77,12 +82,12 @@ function Cart({ cartOpen, handleOpen }) {
             type="text"
             placeholder="Add promocode"
           />
-          <button className="ml-3 flex items-center px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+          <button className="ml-3 flex items-center px-3 py-2 bg-indigo-600 text-white text-sm uppercase font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
             <span>Apply</span>
           </button>
         </form>
       </div>
-      <a className="flex items-center justify-center mt-4 px-3 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">
+      <a className="flex items-center justify-center mt-4 px-3 py-2 bg-indigo-600 text-white text-sm uppercase font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
         <span>Chechout</span>
         <svg
           className="h-5 w-5 mx-2"

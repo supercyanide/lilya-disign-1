@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import Cart from "./Cart"
 
 function Layout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ function Layout({ children }) {
                   fill="currentColor"
                 />
               </svg>
-              <span className="mx-1 text-sm">NY</span>
+              <span className="mx-1 text-sm">Moscow</span>
             </div>
             <div className="w-full text-gray-700 md:text-center text-2xl font-semibold">
               Lilya's Shop
@@ -120,8 +121,8 @@ function Layout({ children }) {
         </div>
       </header>
   
-      {/* // This Cart doesn't really work… yet!
-      <Cart cartOpen={cartOpen} handleOpen={handleOpen} /> */}
+      {/* // This Cart doesn't really work… yet! */}
+      <Cart cartOpen={cartOpen} handleOpen={handleOpen} />
       
       <main className="my-8">{children}</main>
       <footer className="bg-gray-200">
