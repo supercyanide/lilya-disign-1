@@ -2,9 +2,11 @@ import {useState} from 'react'
 import { urlFor, PortableText, getClient } from "../utils/sanity";
 
 function ProductPage(props) {
+  
   const [count, setCount] = useState(1)
   const handleCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count
-  const { title, defaultProductVariant, mainImage, body } = props;
+  const { title, defaultProductVariant, mainImage, body, slug } = props;
+ 
   return (
     <div className="container mx-auto px-6">
       <div className="md:flex md:items-center">
@@ -44,7 +46,7 @@ function ProductPage(props) {
                 </svg>
               </button>
               <span className="text-gray-700 text-lg mx-2">{count}</span>
-              <button onClick={() => handleCount(1)}className="text-gray-500 focus:outline-none focus:text-gray-600">
+              <button onClick={() => handleCount(1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -60,8 +62,8 @@ function ProductPage(props) {
             </div>
           </div>
           <div className="flex items-center mt-6">
-            <button className="px-8 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
-              Order Now
+            <button onClick={() => localStorage.one = JSON.stringify({title: title,count: count,image : mainImage, price:defaultProductVariant?.price,slug :slug})} className="px-8 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
+              Order now!
             </button>
             <button className="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none">
               <svg
@@ -86,5 +88,4 @@ function ProductPage(props) {
     </div>
   );
 }
-
 export default ProductPage;

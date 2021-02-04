@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
 function Cart({ cartOpen, handleOpen }) {
+  
   const productCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count
   const [count, setCount] = useState(1)
   return (
