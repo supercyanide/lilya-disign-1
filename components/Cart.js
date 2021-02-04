@@ -1,9 +1,9 @@
 import {useState} from 'react'
 
 function Cart({ cartOpen, handleOpen }) {
-  
-  const productCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count
-  const [count, setCount] = useState(1)
+  const productCount = (value) => !(count === 0 && value === -1) ? setCount(count + value) : count;
+  const [count, setCount] = useState(1);
+  // const one = JSON.parse( localStorage.one );
   return (
     <div
       className={`${
@@ -39,7 +39,7 @@ function Cart({ cartOpen, handleOpen }) {
               alt=""
             />
             <div className="mx-3">
-              <h3 className="text-sm text-gray-600">Mac Book Pro</h3>
+              <h3 className="text-sm text-gray-600">one.title</h3>
               <div className="flex items-center mt-2">
               <button onClick={() => productCount(-1)} className="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg
